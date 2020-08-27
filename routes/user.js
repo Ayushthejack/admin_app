@@ -6,7 +6,7 @@ const User = require("../model/User")
 
 // login page
 router.get("/login",(req,res)=>{
-	res.send("Login Page");
+	res.send("Login Page after change");
 
 });
 
