@@ -18,7 +18,7 @@ app.use('/',require('./routes/index'));
 //user routes
 app.use('/user',require('./routes/user'));
 
-var PORT = 5000||process.enc.PORT;
+var PORT = 5000||process.env.PORT||process.env.IP;
 
 app.listen(PORT,()=>{
 	console.log("Server started at 5000");
