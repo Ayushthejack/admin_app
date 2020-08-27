@@ -1,7 +1,7 @@
 var express = require("express");
 var mongoose = require("mongoose");
 
-const mongodbURL ="mongodb://localhost/user"; 
+const mongodbURL ="mongodb+srv://ayush:ayush123@cluster0.lbv52.mongodb.net/users?retryWrites=true&w=majority"; 
 mongoose.connect(mongodbURL,{useNewUrlParser:true,useUnifiedTopology:true});
 
 mongoose.connection
@@ -11,7 +11,6 @@ mongoose.connection
 		});
 var app = express();
 //body parser 
-
 app.use(express.urlencoded({extended: false}));
 //Routes
 app.use('/',require('./routes/index'));
