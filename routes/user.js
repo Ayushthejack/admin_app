@@ -17,7 +17,8 @@ router.post("/register",(req,res)=>{
 //	res.send("form submitted");
 	const {name ,email ,password} = req.body;
 	if(!email || !password){
-		res.json({msg:"fill all the fields"});		
+		res.json(req.body);
+		//res.json({msg:"fill all the fields"});		
 	}else{
 		const newUser = new User({
 			name,
@@ -29,7 +30,7 @@ router.post("/register",(req,res)=>{
 		//res.json({msg:"submitted"});
 		newUser.save();		
 	}
-});
+}); 
 router.post("/login",(req,res)=>{
 	console.log(req.body);
 	const {email,password} = req.body;
