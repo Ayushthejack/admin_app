@@ -18,13 +18,14 @@ router.post("/register",(req,res)=>{
 //console.log(req.body);
 	var obj = Object.keys(req.body);
 //	console.log(obj[0]);
-//	const {name ,email ,password} = req.body;
+	var obj1
 	obj.forEach((bee)=>{		
-	var obj1 =JSON.parse(bee);
+	 obj1 =JSON.parse(bee);
 	console.log(obj1.email) ;
 	});
+	const {name ,email ,password} = obj1;	
 	
-/*	if(req.body.email=="" || req.body.password==""){
+	if(email=="" || password==""){
 		res.json(req.body);
 		//res.json({msg:"fill all the fields"});		
 	}else{
@@ -35,9 +36,9 @@ router.post("/register",(req,res)=>{
 		});
 		newUser.save();
 //		console.log(newUser);
-	//	res.json({newUser});
-		res.json({msg:"submitted"});
-	}*/
+		res.json({newUser});
+		//res.json({msg:"submitted"});
+	}
 });
 router.post("/login",(req,res)=>{
 	console.log(req.body);
