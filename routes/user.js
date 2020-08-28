@@ -36,6 +36,7 @@ router.post("/login",(req,res)=>{
 			.then(user=>{
 				if(user){
 					res.json({
+						status:200
 						msg:"Login Succeessfully"
 					});
 					console.log(user);

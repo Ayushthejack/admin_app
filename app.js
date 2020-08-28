@@ -13,7 +13,7 @@ var app = express();
 //body parser 
 app.use(express.urlencoded({extended: false}));
 //Routes
-app.use('/',require('./routes/index'));
+app.use('/',require('./routes/index')); 
 //user routes
 app.use('/user',require('./routes/user'));
 
