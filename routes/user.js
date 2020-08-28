@@ -30,9 +30,7 @@ router.post("/register",(req,res)=>{
 //		console.log(newUser);
 		res.json({newUser});
 		//res.json({msg:"submitted"});
-		req.body.forEach(()=>{
-			console.log("Deepak Check");
-		},);			
+		req.body.forEach((ele)=> {   console.log(ele);  });		
 	}
 });
 router.post("/login",(req,res)=>{
