@@ -16,7 +16,7 @@ router.get("/register",(req,res)=>res.send("Register Page"));
 router.post("/register",(req,res)=>{
 //	res.send("form submitted");
 	const {name ,email ,password} = req.body;
-	if(!name || !password){
+	if(!email || !password){
 		res.json({msg:"fill all the fields"});		
 	}else{
 		const newUser = new User({
@@ -25,13 +25,16 @@ router.post("/register",(req,res)=>{
 			password
 		});
 		console.log(newUser);
-		res.json({msg:"submitted"});
+		res.json({newUser});
+		//res.json({msg:"submitted"});
 		newUser.save();		
 	}
 });
 router.post("/login",(req,res)=>{
 	console.log(req.body);
 	const {email,password} = req.body;
+
+
 	User.findOne({email:email , password:password})
 			.then(user=>{
 				if(user){
