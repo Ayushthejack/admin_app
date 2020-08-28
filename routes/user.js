@@ -11,9 +11,9 @@ router.get("/login",(req,res)=>{
 });
 
 // register page
-router.get("/register",(req,res)=>res.send("Register Page"));
+//router.get("/register",(req,res)=>res.send("Register Page"));
 
-router.post("/register",(req,res)=>{
+router.get("/register",(req,res)=>{
 //	res.send("form submitted");
 	const {name ,email ,password} = req.body;
 	console.log(req.body);
