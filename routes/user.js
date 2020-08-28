@@ -17,8 +17,11 @@ router.post("/register",(req,res)=>{
 //	res.send("form submitted");
 //console.log(req.body);
 	var obj = Object.keys(req.body);
-	console.log(obj[0]);
-	const {name ,email ,password} = obj[0];
+//	console.log(obj[0]);
+//	const {name ,email ,password} = req.body;
+	obj.forEach((bee)=>{
+		console.log(bee);
+	});
 	
 	if(req.body.email=="" || req.body.password==""){
 		res.json(req.body);
