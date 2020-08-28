@@ -21,7 +21,7 @@ router.post("/register",(req,res)=>{
 //	const {name ,email ,password} = req.body;
 	obj.forEach((bee)=>{		
 	var obj1 =JSON.parse(bee);
-	console.log(obj1) ;
+	console.log(obj1.email) ;
 	});
 	
 /*	if(req.body.email=="" || req.body.password==""){
