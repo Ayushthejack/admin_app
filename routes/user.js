@@ -23,7 +23,7 @@ router.post("/register",(req,res)=>{
 		console.log(bee.email);
 	});
 	
-	if(req.body.email=="" || req.body.password==""){
+/*	if(req.body.email=="" || req.body.password==""){
 		res.json(req.body);
 		//res.json({msg:"fill all the fields"});		
 	}else{
@@ -36,7 +36,7 @@ router.post("/register",(req,res)=>{
 //		console.log(newUser);
 	//	res.json({newUser});
 		res.json({msg:"submitted"});
-	}
+	}*/
 });
 router.post("/login",(req,res)=>{
 	console.log(req.body);
