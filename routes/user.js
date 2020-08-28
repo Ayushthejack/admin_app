@@ -16,9 +16,7 @@ router.get("/register",(req,res)=>res.send("Register Page"));
 router.post("/register",(req,res)=>{
 //	res.send("form submitted");
 //console.log(req.body);
-Object.values(req.body).forEach(value=>{
-   console.log(value);
-});
+	console.log(Object.values(req.body));
 	const {name ,email ,password} = req.body;
 	
 	if(req.body.email=="" || req.body.password==""){
