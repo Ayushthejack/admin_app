@@ -25,10 +25,10 @@ router.post("/register",(req,res)=>{
 			email,
 			password
 		});
+		newUser.save();
 		console.log(newUser);
 		res.json({newUser});
-		//res.json({msg:"submitted"});
-		newUser.save();		
+		//res.json({msg:"submitted"});			
 	}
 });
 router.post("/login",(req,res)=>{
