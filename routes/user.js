@@ -37,7 +37,7 @@ router.post("/login",(req,res)=>{
 				if(user){
 					res.json({
 						status:200
-						msg:"Login Succeessfully"
+						msg:"Login Succeessfully c"
 					});
 					console.log(user);
 				}
