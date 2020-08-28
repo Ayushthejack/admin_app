@@ -28,8 +28,7 @@ router.post("/register",(req,res)=>{
 		});
 		newUser.save();
 		console.log(newUser);
-		res.json({req.body});
-		//res.json({newUser});
+		res.json({newUser});
 		//res.json({msg:"submitted"});			
 	}
 });
