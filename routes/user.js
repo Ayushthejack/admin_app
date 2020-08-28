@@ -16,7 +16,7 @@ router.get("/register",(req,res)=>res.send("Register Page"));
 router.post("/register",(req,res)=>{
 //	res.send("form submitted");
 	const {name ,email ,password} = req.body;
-	if(!email || !password){
+	if(req.body.email=="" || req.bodypassword==""){
 		res.json(req.body);
 		//res.json({msg:"fill all the fields"});		
 	}else{
@@ -30,7 +30,7 @@ router.post("/register",(req,res)=>{
 		//res.json({msg:"submitted"});
 		newUser.save();		
 	}
-}); 
+});
 router.post("/login",(req,res)=>{
 	console.log(req.body);
 	const {email,password} = req.body;
