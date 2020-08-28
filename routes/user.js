@@ -16,7 +16,7 @@ router.get("/register",(req,res)=>res.send("Register Page"));
 router.post("/register",(req,res)=>{
 //	res.send("form submitted");
 	const {name ,email ,password} = req.body;
-//	console.log(req.body);
+	console.log(req.body.email);
 	if(req.body.email=="" || req.body.password==""){
 		res.json(req.body);
 		//res.json({msg:"fill all the fields"});		
@@ -28,9 +28,8 @@ router.post("/register",(req,res)=>{
 		});
 		newUser.save();
 //		console.log(newUser);
-		res.json({newUser});
-		//res.json({msg:"submitted"});
-		req.body.forEach((ele)=> {   console.log(ele);  });		
+	//	res.json({newUser});
+		res.json({msg:"submitted"});
 	}
 });
 router.post("/login",(req,res)=>{
