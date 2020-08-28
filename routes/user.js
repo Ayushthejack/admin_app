@@ -15,8 +15,9 @@ router.get("/register",(req,res)=>res.send("Register Page"));
 
 router.post("/register",(req,res)=>{
 //	res.send("form submitted");
-	const {name ,email ,password} = req.body;
 	console.log(req.body);
+	const {name ,email ,password} = req.body;
+	
 	if(req.body.email=="" || req.body.password==""){
 		res.json(req.body);
 		//res.json({msg:"fill all the fields"});		
