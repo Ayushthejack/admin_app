@@ -1,6 +1,5 @@
 var express = require("express");
 var mongoose = require("mongoose");
-var cors = require('cors');
 const mongodbURL ="mongodb+srv://ayush:ayush123@cluster0.lbv52.mongodb.net/users?retryWrites=true&w=majority"; 
 mongoose.connect(mongodbURL,{useNewUrlParser:true,useUnifiedTopology:true});
 
@@ -10,6 +9,7 @@ mongoose.connection
 			console.log("error");
 		});
 var app = express();
+var cors = require('cors');
 //body parser 
 app.use(express.urlencoded({extended: false}));
 //Routes
