@@ -3,19 +3,29 @@ const mongoose = require("mongoose");
 const newsSchema = mongoose.Schema({
 	category :{
 		type: String,
-		require:true
+		required:true
 	},
 	location :{
 		type: String,
-		require:true
+		required:true
 	},
 	heading :{
 		type: String,
-		require:true
+		required:true
 	},
 	keywords:[{
 		type : String,
-		require:true	
+		required:true	
+	}],
+	text:[{
+		subheading:{
+			type:String,
+			required : true
+		},
+		passage:{
+			type:String,
+			required:true
+		}
 	}],
 });
 

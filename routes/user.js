@@ -1,13 +1,17 @@
 var express = require("express");
-
+var app = express();
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 var router = express.Router();
+var cors = require('cors');
 
 const User = require("../model/User")
 
 // login page
 router.get("/login",(req,res)=>{
-	res.send("Login Page after change");
-
+	//res.send("Login Page after change");
+	res.sendFile(__dirname+"/view/index.html");
 });
 
 // register page
@@ -50,11 +54,16 @@ router.post("/login",(req,res)=>{
 				if(user){
 					res.json({
 						status:200,
-						msg:"Login Succeessfully c"
+						msg:user
+					});
+					res.json({
+						"msg":"no"	
 					});
 					console.log(user);
+				}else{
+					res.send(req.body);
+					console.log("not working");
 				}
 			});
 });
-
 module.exports = router;
