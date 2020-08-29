@@ -4,7 +4,8 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 var router = express.Router();
-var cors = require('cors');
+
+
 
 const User = require("../model/User")
 
@@ -46,6 +47,8 @@ router.post("/register",(req,res)=>{
 });
 router.post("/login",(req,res)=>{
 	console.log(req.body);
+	console.log(req.params);
+	console.log(req.query);
 	const {email,password} = req.body;
 
 
