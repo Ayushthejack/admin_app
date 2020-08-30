@@ -6,7 +6,7 @@ const newsSchema = mongoose.Schema({
 		required:true
 	},
 	location :[
-		country:{
+		country :{
 			type: String,
 			required:true
 		},
@@ -22,7 +22,6 @@ const newsSchema = mongoose.Schema({
 			type: String,
 			required:true
 		}
-
 	],
 	heading :{
 		type: String,
