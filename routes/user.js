@@ -66,12 +66,11 @@ console.log(req.body);
 	}*/
 });
 router.post("/login",(req,res)=>{
-	console.log(req.body);
 	var result;
 	for (var k in req.body){
     result = JSON.parse(k)
 	}
-	console.log(result);
+//	console.log(result);
 	const {email,password} = result;
 
 	User.findOne({email:email , password:password})
@@ -87,9 +86,9 @@ router.post("/login",(req,res)=>{
 						email,
 						password
 					});
-				const obj = JSON.parse(JSON.stringify(req.body)); // req.body = [Object: null prototype] { title: 'product' }
+/*				const obj = JSON.parse(JSON.stringify(req.body)); // req.body = [Object: null prototype] { title: 'product' }
 
-				console.log(obj);
+				console.log(obj);*/
 				}
 			});
 });
