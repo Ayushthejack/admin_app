@@ -6,26 +6,6 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 //login API for app
-router.post("/login",(req,res)=>{
-	console.log(req.body);
-	const {email,password} = req.body;
-
-	User.findOne({email:email , password:password})
-			.then(user=>{
-				if(user){
-					res.json({
-						status:200,
-						msg:"Successfully login"
-					});
-					console.log(user);
-				}else{
-					res.json({
-						msg:"Invalid username and password"
-					});
-				}
-			});
-});
-
 
 var router = express.Router();
 const User = require("../model/User");
@@ -58,6 +38,25 @@ const {email , password ,name } = req.body;
 			res.json({newUser})
 		}	
 
+});
+router.post("/login",(req,res)=>{
+	console.log(req.body);
+	const {email,password} = req.body;
+
+	User.findOne({email:email , password:password})
+			.then(user=>{
+				if(user){
+					res.json({
+						status:200,
+						msg:"Successfully login"
+					});
+					console.log(user);
+				}else{
+					res.json({
+						msg:"Invalid username and password"
+					});
+				}
+			});
 });
 
 
