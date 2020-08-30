@@ -4,11 +4,11 @@ var bodyParser = require("body-parser");
 var jsonParser = bodyParser.json()
  
 // create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+// var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 var router = express.Router();
 
-router.get("/add_news",urlencodedParser,(req,res)=>res.send("Add News page"));
+router.get("/add_news",(req,res)=>res.send("Add News page"));
 
 router.post("/add_news",(req,res)=>{
 	console.log(req.body);
