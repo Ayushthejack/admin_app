@@ -41,7 +41,7 @@ const {email , password ,name } = req.body;
 
 //login API for app
 router.post("/login",(req,res)=>{
-
+	console.log(req.body);
 	const {email,password} = req.body;
 
 	User.findOne({email:email , password:password})
