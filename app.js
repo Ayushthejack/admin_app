@@ -20,7 +20,8 @@ app.use(express.urlencoded({extended: false}));
 app.use('/',require('./routes/index')); 
 //user routes
 app.use('/user',require('./routes/user'));
-
+//news routes
+app.use('/news',require('./routes/news'));
 
 var PORT = 5000||process.env.PORT||process.env.IP;
 
