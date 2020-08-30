@@ -67,11 +67,11 @@ console.log(req.body);
 });
 router.post("/login",(req,res)=>{
 	//console.log(req.body);
-/*	for (var k in req.body){
+	for (var k in req.body){
     var result = JSON.parse(k)
 	}
-	console.log(result)*/
-	const {email,password} = req.body;
+	console.log(result)
+	const {email,password} = result;
 
 	User.findOne({email:email , password:password})
 			.then(user=>{
