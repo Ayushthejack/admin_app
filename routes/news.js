@@ -1,4 +1,6 @@
 var express = require("express");
+var bodyParser = require("body-parser");
+
 var jsonParser = bodyParser.json()
  
 // create application/x-www-form-urlencoded parser
