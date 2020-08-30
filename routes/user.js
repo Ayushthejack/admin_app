@@ -4,9 +4,6 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 var router = express.Router();
-
-
-
 const User = require("../model/User")
 
 // login page
@@ -70,12 +67,12 @@ router.post("/login",(req,res)=>{
 	for (var k in req.body){
     result = JSON.parse(k)
 	}
-//	console.log(result);
+	console.log(result);
 	const {email,password} = result;
 
-	User.find({email:email , password:password})
+	User.findOne({email:email , password:password})
 			.then(user=>{
-				if(user.length===0){
+				if(user){
 					res.json({
 						status:200,
 						msg:user
