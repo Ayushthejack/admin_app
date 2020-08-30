@@ -12,12 +12,12 @@ router.post("/add_news",(req,res)=>{
 	console.log("This is news Page");
 	console.log(req.body);
 	res.send(req.body);
-	const {category} = req.body;
+/*	const {category} = req.body;
 
 		const newNews = new News({
 				category
 			});
-		newNews.save();
+		newNews.save();*/
 
 });
 
