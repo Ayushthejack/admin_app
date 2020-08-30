@@ -73,9 +73,9 @@ router.post("/login",(req,res)=>{
 //	console.log(result);
 	const {email,password} = result;
 
-	User.findOne({email:email , password:password})
+	User.find({email:email , password:password})
 			.then(user=>{
-				if(user){
+				if(user.length===0){
 					res.json({
 						status:200,
 						msg:user
