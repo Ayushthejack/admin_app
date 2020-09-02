@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
 const newsSchema = mongoose.Schema({
-	category :{
-		type: String,
-		required:true
-	},
+	category :[{
+			type : String,
+			required:true
+	}],
 	location :[{
 		country :{
 			type: String,
@@ -12,24 +12,26 @@ const newsSchema = mongoose.Schema({
 		},
 		state:{
 			type: String,
-			required:true		
+
 		},
 		district:{
 			type: String,
-			required:true
+
 		},
 		city:{
 			type: String,
-			required:true
+
 		}
 	}],
+
 	heading :{
 		type: String,
 		required:true
 	},
+
 	keywords:[{
-		type : String,
-		required:true	
+			type : String,
+			required:true
 	}],
 	text:[{
 		subheading:{
@@ -40,6 +42,13 @@ const newsSchema = mongoose.Schema({
 			type:String,
 			required:true
 		}
+	}],
+	hitRate:{
+		type:Number,
+		default:0
+	},
+	filename:[{
+		type : String
 	}]
 });
 
