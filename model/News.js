@@ -36,15 +36,15 @@ const newsSchema = mongoose.Schema({
 	text:[{
 		subheading:{
 			type:String,
-			required : true
+
 		},
 		passage:{
 			type:String,
-			required:true
+
 		},
 		image:{
 			type:String,
-			required:true
+
 		}
 	}],
 	hitRate:{
