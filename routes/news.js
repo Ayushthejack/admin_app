@@ -20,7 +20,9 @@ router.get("/add_news",(req,res)=>res.sendFile(__dirname+"/view/addNews.html"));
 		var filenames = [];
 // function to upload files
 	function saveImages(item) {
-		var matches = item.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
+		if(item.image){
+
+	var matches = item.image.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
 		console.log(matches[1]);
 	response = {};
 	response.type = matches[1];
@@ -36,15 +38,15 @@ router.get("/add_news",(req,res)=>res.sendFile(__dirname+"/view/addNews.html"));
                     console.log('uploaded');
             }
     	});
-    	filenames.push(filename);	
+	item.image = filename;
+		}
 	}		
-
 // add news API
 router.post("/add_news",(req,res)=>{
 	console.log("This is news Page");
-
-	// console.log(req.body);
+//  console.log(req.body);
 // 	obj = req.body.article;
+
 	var obj = req.body;
 	var	news = {};
 
@@ -53,13 +55,12 @@ router.post("/add_news",(req,res)=>{
 	news.heading = obj.heading;
 	news.keywords = obj.keywords;
 	news.text = obj.text;
+	news.text.forEach(saveImages);
 
+/*	res.send(news);
+	console.log(news);*/
 
-	news.filename = obj.filename;
-//	console.log(news);
-	news.filename.forEach(saveImages);
-	news.filename = filenames;
-
+// db insert
 	const newNews = new News(news);
 	newNews.save();
 	res.json(newNews)

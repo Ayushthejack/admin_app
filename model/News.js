@@ -41,15 +41,16 @@ const newsSchema = mongoose.Schema({
 		passage:{
 			type:String,
 			required:true
+		},
+		image:{
+			type:String,
+			required:true
 		}
 	}],
 	hitRate:{
 		type:Number,
 		default:0
-	},
-	filename:[{
-		type : String
-	}]
+	}
 });
 
 const News = mongoose.model('News',newsSchema);
