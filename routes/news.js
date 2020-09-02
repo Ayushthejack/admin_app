@@ -57,8 +57,8 @@ router.post("/add_news",(req,res)=>{
 	news.text = obj.text;
 	news.text.forEach(saveImages);
 
-	res.send(obj);
-	console.log(obj);
+/*	res.send(obj);
+	console.log(obj);*/
 
 // db insert
 	const newNews = new News(news);
