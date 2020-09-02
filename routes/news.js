@@ -50,21 +50,21 @@ router.post("/add_news",(req,res)=>{
 	var obj = req.body;
 	var	news = {};
 
-	news.category =obj.category;
+/*	news.category =obj.category;
 	news.location = obj.location;
 	news.heading = obj.heading;
-	news.keywords = obj.keywords;
+	news.keywords = obj.keywords;*/
 	news.text = obj.text;
-	news.text.forEach(saveImages);
+//	news.text.forEach(saveImages);
 
-/*	res.send(news);
-	console.log(news);*/
+	res.send(news);
+	console.log(news);
 
 // db insert
-	const newNews = new News(news);
+/*	const newNews = new News(news);
 	newNews.save();
 	res.json(newNews)
-	console.log(newNews);	
+	console.log(newNews);	*/
 });
 
 
