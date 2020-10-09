@@ -6,7 +6,7 @@ var mongoose = require("mongoose");
 // const mongodbURL ="mongodb+srv://ayush:ayush123@cluster0.lbv52.mongodb.net/users?retryWrites=true&w=majority"; 
 // mongoose.connect(mongodbURL,{useNewUrlParser:true,useUnifiedTopology:true});
 
-const mongodbURL ="mongodb+srv://dsain:dain@cluster0.lbv52.mongodb.net/users?retryWrites=true&w=majority";
+const mongodbURL ="mongodb+srv://dsain:dain@cluster0.lbv52.mongodb.net/users?retryWrites=true&w=majority"; 
 mongoose.connect(mongodbURL,{useNewUrlParser:true,useUnifiedTopology:true});
 
 /*DB connect Confirmation */
@@ -14,7 +14,7 @@ mongoose.connect(mongodbURL,{useNewUrlParser:true,useUnifiedTopology:true});
 mongoose
      .connect( mongodbURL, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
      .then(() => console.log( 'Database Connected' ))
-     .catch(err => console.log(err));
+     .catch(err => console.log( err ));
 
 
 
@@ -38,6 +38,7 @@ app.use(cors({
     origin:"*"
 }));
 
+
 //Routes
 app.use('/',require('./routes/index')); 
 //user routes
@@ -45,15 +46,16 @@ app.use('/user',require('./routes/user'));
 //news routes
 app.use('/news',require('./routes/news'));
 
-var PORT = process.env.PORT||process.env.IP;
+var PORT = 5000||process.env.PORT||process.env.IP;
+
+/*app.listen(PORT,()=>{
+	console.log("Server started at 5000");
+});
+*/
 
 app.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
-
-/*app.listen(PORT||5000,()=>{
-	console.log("Server started at 5000");
-});*/
 
 /*const express = require('express');
 const app = express();
