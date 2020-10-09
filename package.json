@@ -2,7 +2,7 @@
   "name": "admin",
   "version": "1.0.0",
   "description": "backend of admin",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"

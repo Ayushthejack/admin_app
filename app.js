@@ -1,16 +1,34 @@
+//43.252.88.113 (cpanel40.interactivedns.com)
+
 var express = require("express");
 var cors = require('cors');
 var mongoose = require("mongoose");
-const mongodbURL ="mongodb+srv://ayush:ayush123@cluster0.lbv52.mongodb.net/users?retryWrites=true&w=majority"; 
+// const mongodbURL ="mongodb+srv://ayush:ayush123@cluster0.lbv52.mongodb.net/users?retryWrites=true&w=majority"; 
+// mongoose.connect(mongodbURL,{useNewUrlParser:true,useUnifiedTopology:true});
+
+const mongodbURL ="mongodb+srv://dsain:dain@cluster0.lbv52.mongodb.net/users?retryWrites=true&w=majority"; 
 mongoose.connect(mongodbURL,{useNewUrlParser:true,useUnifiedTopology:true});
 
-
 /*DB connect Confirmation */
-mongoose.connection
+
+mongoose
+     .connect( mongodbURL, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
+     .then(() => console.log( 'Database Connected' ))
+     .catch(err => console.log( err ));
+
+
+
+
+
+
+
+
+
+/*mongoose.connection
 		.once("open",()=>console.log("connected"))
 		.on("error",error=>{
 			console.log(error);
-		});
+		});*/
 var app = express();
 //body parser 
 const bodyParser = require('body-parser');
