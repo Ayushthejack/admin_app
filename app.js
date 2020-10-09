@@ -48,8 +48,13 @@ app.use('/news',require('./routes/news'));
 
 var PORT = 5000||process.env.PORT||process.env.IP;
 
-app.listen(PORT,()=>{
+/*app.listen(PORT,()=>{
 	console.log("Server started at 5000");
+});
+*/
+
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
 /*const express = require('express');
