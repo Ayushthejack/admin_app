@@ -47,7 +47,7 @@ router.post("/add_news",(req,res)=>{
 //  console.log(req.body);
 // 	obj = req.body.article;
 
-	var obj = req.body.article;
+	var obj = req.body;
 	var	news = {};
 
 	news.category =obj.category;
