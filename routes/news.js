@@ -45,9 +45,9 @@ router.get("/add_news",(req,res)=>res.sendFile(__dirname+"/view/addNews.html"));
 router.post("/add_news",(req,res)=>{
 	console.log("This is news Page");
 //  console.log(req.body);
-// 	obj = req.body.article;
+ 	obj = req.body.article;
 
-	var obj = req.body;
+//	var obj = req.body;
 	var	news = {};
 
 	news.category =obj.category;
