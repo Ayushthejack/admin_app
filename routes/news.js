@@ -10,8 +10,12 @@ app.use(bodyParser.urlencoded({ extended: false ,limit:'50mb'}));
 // parse application/json
 app.use(bodyParser.json({limit:'50mb'}));
 
- 
+//loading model classes for database 
 const News = require("../model/News");
+
+const Ncat = require("../model/Ncat");
+
+
 var router = express.Router();
 
 router.get("/add_news",(req,res)=>res.sendFile(__dirname+"/view/addNews.html"));
@@ -45,9 +49,9 @@ router.get("/add_news",(req,res)=>res.sendFile(__dirname+"/view/addNews.html"));
 router.post("/add_news",(req,res)=>{
 	console.log("This is news Page");
 //  console.log(req.body);
- 	obj = req.body.article;
+// 	obj = req.body.article;
 
-//	var obj = req.body;
+	var obj = req.body;
 	var	news = {};
 
 	news.category =obj.category;
@@ -61,6 +65,18 @@ router.post("/add_news",(req,res)=>{
 	console.log(obj);*/
 
 // db insert
+	Ncat.find({category: news.category})
+			.then(exist=>{
+				console.log(exist);
+				if(exist.length > 0){
+					//category already exists
+
+				}else{
+					//category is not there ...Update DB
+					const ncat = new Ncat({category:news.category});
+					ncat.save();
+				}
+			});
 	const newNews = new News(news);
 	newNews.save();
 	res.json(newNews)
@@ -81,5 +97,17 @@ router.get("/load_news",(req,res)=>{
 			});
 });	
 
+// load news category 
+router.get("/load_news_category",(req,res)=>{
+	Ncat.find().then(newsCat=>{
+				if(newsCat){
+					res.json({
+						status:200,
+						news : newsCat
+					});
+					console.log(newsCat);
+				}
+			});
+});
 
 module.exports = router;

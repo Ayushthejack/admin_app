@@ -52,7 +52,5 @@ const newsSchema = mongoose.Schema({
 		default:0
 	}
 });
-
 const News = mongoose.model('News',newsSchema);
-
 module.exports = News;
