@@ -37,7 +37,7 @@ router.get("/add_news",(req,res)=>res.sendFile(__dirname+"/view/addNews.html"));
 	var filename = Date.now()+'.'+ extension;
 	fs.writeFile('./uploads/news_images/'+ filename, response.data, (err, response)=> {
             if(err) {
-                     res.send(err);
+            		console.log(err);
             } else {
                     console.log('uploaded');
             }
